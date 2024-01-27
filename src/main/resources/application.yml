@@ -1,0 +1,19 @@
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    generate-ddl: true
+    show-sql: true
+  h2:
+    console:
+      enabled: true
+  datasource:
+    username: ${DATASOURCE_USERNAME:ivannikolaev}
+    password: ${DATASOURCE_PASSWORD:Apolo}
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/User}
+    driver-class-name: org.postgresql.Driver
+server:
+  port: 8081
