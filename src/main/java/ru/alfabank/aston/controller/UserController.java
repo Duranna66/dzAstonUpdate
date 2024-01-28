@@ -32,11 +32,11 @@ public class UserController {
         List<UserApp> userApps = userService.showAllUsers();
         return ResponseEntity.ok(userApps.toString());
     }
-    @GetMapping("/login")
-    public ResponseEntity<String> logIn(@RequestParam String login, @RequestParam String password) { //чел логинится, логин и пароль приходит в параметрах
-        log.info("user with login {} and password{} ", login, password);
-        userService.logIn(login, password);
-        return ResponseEntity.ok("Добро пожаловать " + login);
+    @PostMapping("/login")
+    public ResponseEntity<String> logIn(@RequestBody UserDTO userDTO) { //чел логинится, логин и пароль приходит в параметрах
+        log.info("user with login {} and password{} ", userDTO.getLogin(), userDTO.getPassword());
+        userService.logIn(userDTO.getLogin(), userDTO.getPassword());
+        return ResponseEntity.ok("Добро пожаловать " + userDTO.getLogin());
     }
 }
 
